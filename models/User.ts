@@ -6,7 +6,7 @@ export interface IUser {
     password : string;
     role : "user" | "admin";
     _id? : mongoose.Types.ObjectId
-    crateAt? : Date;
+    createdAt? : Date;
     updatedAt? : Date;
 }
 
