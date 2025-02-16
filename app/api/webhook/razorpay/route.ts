@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
         });
 
         await transporter.sendMail({
-          from: '"PzImageKit Shop" <noreply@pzimagekitshop.com>',
+          from: '"ImageKit Shop" <noreply@imagekitshop.com>',
           to: order.userId.email,
           subject: "Payment Confirmation - ImageKit Shop",
           text: `
