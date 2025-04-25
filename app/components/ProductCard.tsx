@@ -25,6 +25,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
             }}
           >
             <IKImage
+              urlEndpoint={process.env.NEXT_PUBLIC_URL_ENDPOINT}
               path={product.imageUrl}
               alt={product.name}
               loading="eager"
@@ -34,7 +35,10 @@ export default function ProductCard({ product }: { product: IProduct }) {
                   width: IMAGE_VARIANTS.SQUARE.dimensions.width.toString(),
                   cropMode: "extract",
                   focus: "center",
-                  quality: "80",
+                  quality: "85",
+                  format: "auto",
+                  progressive: "true",
+                  dpr: "auto"
                 },
               ]}
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

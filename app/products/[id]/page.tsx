@@ -108,7 +108,10 @@ export default function ProductPage() {
         height: variant.dimensions.height.toString(),
         cropMode: "extract",
         focus: "center",
-        quality: "60",
+        quality: "85",
+        format: "auto",
+        progressive: "true",
+        dpr: "auto"
       },
     ];
   };

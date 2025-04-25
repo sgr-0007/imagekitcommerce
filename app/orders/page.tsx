@@ -69,11 +69,14 @@ export default function OrdersPage() {
                       alt={`Order ${order._id?.toString().slice(-6)}`}
                       transformation={[
                         {
-                          quality: "60",
+                          quality: "80",
                           width: variantDimensions.width.toString(),
                           height: variantDimensions.height.toString(),
                           cropMode: "extract",
                           focus: "center",
+                          format: "auto",
+                          progressive: "true",
+                          dpr: "auto"
                         },
                       ]}
                       className="w-full h-full object-cover"
@@ -122,13 +125,11 @@ export default function OrdersPage() {
                         </p>
                         {order.status === "completed" && (
                           <a
-                            href={`${process.env.NEXT_PUBLIC_URL_ENDPOINT}/tr:q-100,w-${variantDimensions.width},h-${variantDimensions.height},cm-extract,fo-center/${product.imageUrl}`}
+                            href={`${process.env.NEXT_PUBLIC_URL_ENDPOINT}/${product.imageUrl}?tr=w-${variantDimensions.width},h-${variantDimensions.height},cm-extract,fo-center,q-100`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary gap-2"
-                            download={`image-${order._id
-                              ?.toString()
-                              .slice(-6)}.jpg`}
+                            download={`${product.name.replace(/\s+/g, '-').toLowerCase()}-${variantDimensions.width}x${variantDimensions.height}-${order._id?.toString().slice(-6)}.jpg`}
                           >
                             <Download className="w-4 h-4" />
                             Download High Quality
